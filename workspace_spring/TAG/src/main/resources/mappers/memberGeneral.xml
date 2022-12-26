@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--  memberGeneral  -->
+
+<mapper namespace="memberGeneral">
+
+
+	<!-- [로그인] 로그인 성공/실패 -->
+	<select id="select"  resultType="String" parameterType="kr.co.itwill.memberGeneral.MemberGeneralDTO" >
+		SELECT mem_grade
+		FROM member
+		WHERE m_id = #{m_id} AND m_pw = #{m_pw} AND mem_grade IN ('B', 'S', 'M')
+	</select>
+	
+	
+	<!-- [회원가입] 아이디 중복 체크 -->
+	<select id="idCheck" parameterType="String" resultType="int">
+		SELECT COUNT(m_id) 
+		FROM member 
+		WHERE m_id= #{m_id}
+	</select>
+	
+	
+	<!-- [회원가입] 이메일 중복 체크 -->
+	<select id="emailGcheck" parameterType="String" resultType="int">
+		SELECT COUNT(m_email) 
+		FROM member 
+		WHERE m_email= #{m_email}
+	</select>
+	
+	
+	<!-- [회원가입] 회원등록 insert -->
+	<insert id="joinG" parameterType="kr.co.itwill.memberGeneral.MemberGeneralDTO">
+		INSERT INTO member (m_id, m_pw, m_name, nickname, birth, gender, m_zipcode, m_addr1, m_addr2, m_tel, m_email, mem_grade, point, regdate)
+		VALUES (
+				  #{m_id}
+				 ,#{m_pw}
+				 ,#{m_name}
+				 ,#{nickname}
+				 ,#{birth}
+				 ,#{gender}
+				 ,#{m_zipcode}
+				 ,#{m_addr1}
+				 ,#{m_addr2}
+				 ,#{m_tel}
+				 ,#{m_email}
+				 ,'B'
+				 ,'0'
+				 ,(current_date)
+				)
+	</insert>
+	
+	<!-- [회원가입] 포인트 3000점 적립 -->
+	<insert id="joinGpoint" parameterType="kr.co.itwill.point.PointDTO">
+		insert into point_detail (m_id, detail, pt_plus, pt_total, cng_date)
+		values ( #{m_id} , '회원가입 축하 포인트 적립', '3000',  '3000', (current_date))
+	</insert>
+	
+	<!-- [회원가입] 배송비 쿠폰 3000점 발급 -->
+	<insert id="joinGcoupon" parameterType="kr.co.itwill.coupon.CouponDTO">
+		insert into coupon_detail (m_id, coupon, issue_date, exp_date)
+		values ( #{m_id} , 'Dc', (current_date), date_add((CURRENT_DATE), interval +1 month))
+	</insert>
+	
+	
+	
+	
+	
+	
+	
+	
+	<select id="memberupdateG" resultType="kr.co.itwill.memberGeneral.MemberGeneralDTO" parameterType="String">
+		select m_id, m_pw, m_name, nickname, birth, gender, m_zipcode, m_addr1, m_addr2, m_tel, m_email, mem_grade, point, regdate
+		from member
+		where m_id=#{m_id}
+	</select>
+	
+	<update id="memberupdateGproc" parameterType="kr.co.itwill.memberGeneral.MemberGeneralDTO">
+		UPDATE member
+		SET  m_pw=#{m_pw}
+			,m_name=#{m_name}
+			,nickname=#{nickname}
+			,gender=#{gender}
+			,birth=#{birth}
+			,m_email=#{m_email}
+			,m_tel=#{m_tel}
+			,m_zipcode=#{m_zipcode}
+			,m_addr1=#{m_addr1}
+			,m_addr2=#{m_addr2}
+		WHERE m_id=#{m_id}
+	</update>
+
+
+</mapper>

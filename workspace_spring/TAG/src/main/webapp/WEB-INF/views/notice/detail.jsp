@@ -52,7 +52,9 @@
 		</tr>
 		<tr>
 			<th class="info">내용</th>
-			<td>${notice.edit}</td>
+			<td>
+				${notice.edit} 
+			</td>
 		</tr>
 		<tr>
 			<td colspan="2" align="center">

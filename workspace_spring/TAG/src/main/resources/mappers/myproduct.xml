@@ -37,8 +37,8 @@
 		          , DT.detail_cnt, DT.stus      
 		        FROM order_detail DT JOIN product PP
 		        ON DT.pro_no=PP.pro_no
-		        JOIN product_order po
-		        on dt.order_num = po.order_num, (SELECT @RNO := 0) BB
+		        JOIN product_order PO
+		        on DT.order_num = PO.order_num, (SELECT @RNO := 0) BB
 		        WHERE DT.order_num= #{order_num}
 		      ) CC
 		) AA 

@@ -2,6 +2,8 @@
 <%@ include file="ssi.jsp" %>
 <%@ include file="../header.jsp" %>
 
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+
 <style>
 .btn.naverbtn {
   background: transparent;
@@ -10,8 +12,8 @@
 }
 
 .btn.naverbtn:hover {
-  color: white;
-  background: #19ce60;
+  color: black;
+  background: #fae100;
 }
 
 input[type="checkbox"] + label:before {
@@ -60,10 +62,12 @@ input[type="checkbox"] + label:before {
 	<input type="hidden" value="" id="Fd_fee" name="d_fee">
 	<input type="hidden" value="" id="Ftotal_price" name="total_price">
 	<input type="hidden" value="${(order_proinfo.price * buystock)}" name="order_price">
-	<input type="hidden" value="<fmt:formatNumber type="number" maxFractionDigits="0"  value="${(order_proinfo.price * buystock)*0.01}"/>" name="pt_plus">
+	<input type="hidden" value="<fmt:formatNumber type="number" maxFractionDigits="0" value="${(order_proinfo.price * buystock)*0.01}"/>" id="Fpt_plus" name="pt_plus">
 	<input type="hidden" value="${buystock}" name="detail_cnt">
 	<!-- <input type="hidden" value="" id="discount" name="discount"> -->
 	<input type="hidden" value="" id="Fpt_minus" name="pt_minus">
+	
+	<c:set var="m_id" value="${s_m_id}"/>
 	
 	<div style="padding:0 10px; width: 60%; display: inline-block;"> 
 		<div style="margin-top: 50px; margin-bottom: 30px;"> 
@@ -159,7 +163,7 @@ input[type="checkbox"] + label:before {
 			<div style="width: 100%;"> 
 				<button type="button" class="btn btn-outline-black btn-sm" id="card" style="width: 33.3%; border-right:none;"> 신용·체크카드</button>
 				<button type="button" class="btn btn-outline-black btn-sm" id="bank" style="width: 33.3%; margin-left: -5px; border-right:none;"> 무통장 입금</button>
-				<button type="button" class="btn naverbtn btn-sm" onclick="window.open('https://nid.naver.com/nidlogin.login');" style="width: 33.3%; margin-left: -5px;"> 네이버 페이</button>			
+				<button type="button" class="btn naverbtn btn-sm" id="iamportPayment" style="width: 33.3%; margin-left: -5px;"> 카카오 페이</button>			
 			</div>	
 
 			<br>
@@ -309,10 +313,15 @@ input[type="checkbox"] + label:before {
 </div><!-- wrapall -->
 <!-- 본문영역 -->
 
-
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 
 <script>
+
+	$(document).ready(function(){ 
+		$("#iamportPayment").click(function(){ 
+	    	payment(); //버튼 클릭하면 호출 
+	    }); 
+	})
 	
 	$( document ).ready(function() {
 		$(".headProduct").addClass("active");//헤더 굿즈 아래 밑줄
@@ -332,12 +341,39 @@ input[type="checkbox"] + label:before {
 	var dis_price = 0;								// 할인 된 금액 
 	
 	//total_price += 3000;							// 기본 배송비
+	var m_id = "<c:out value='${m_id}'/>"
+	  
+	
+	// 카카오페이 버튼! (한번 이미 결제 완료하면 아래 merchant_uid: 를 새롭게 바꿔줘야 결제진행이 됩니다...이유는 모름)
+	function payment(data) {
+		//alert(m_id);
+		
+	    IMP.init('imp13534036');			 //아임포트 관리자 콘솔에서 확인한 '가맹점 식별코드' 입력
+	    IMP.request_pay({					 // param
+	        pg: "kakaopay.TC0ONETIME", 		 //pg사명 or pg사명.CID (잘못 입력할 경우, 기본 PG사가 띄워짐)
+	        pay_method: "card", 			 //지불 방법
+	        merchant_uid: m_id,    	         //"iamport_test_id", //가맹점 주문번호 (아임포트를 사용하는 가맹점에서 중복되지 않은 임의의 문자열을 입력)
+	        name: "TAG:Ticket And Goods",    //결제창에 노출될 상품명
+	        amount: total_price, 			 //금액
+	        buyer_email : "teser@naver.com", 
+	        buyer_name : "홍길동",
+	        buyer_tel : "01012341234"
+	    }, function (rsp) { 				 // callback
+	        if (rsp.success) {
+	            //alert("완료 -> imp_uid : "+rsp.imp_uid+" / merchant_uid(orderKey) : " +rsp.merchant_uid);
+	        	//location.href='/home';
+	        } else {
+	            alert("실패 : 코드("+rsp.error_code+") / 메세지(" + rsp.error_msg + ")");
+	        }
+	    });
+	}//kakaopay
+	
 	
 	// 쿠폰 사용
 	$('#couponselect').change(function() {
 	    var result = $('#couponselect option:selected').text();
 	    //alert(result);
-	    
+	 
 		    if (result == '공연 예매 감사 쿠폰 (10%)' || result == '생일 축하 쿠폰 (10%)') {
 				
 		    	var discount = order_price*0.1; 	// 현재 총 결제 금액에 10% 할인액
@@ -598,6 +634,18 @@ input[type="checkbox"] + label:before {
     	//alert(usepoint);
     	$('#Fpt_minus').val(usepoint || 0);
     	//alert($('#Fpt_minus').val());
+    	
+        //alert($('input[name="pt_plus"]').val());
+        var pt_plus = $('input[name="pt_plus"]').val();
+        //alert(pt_plus);
+       
+        pt_plus = pt_plus.replace(',','');
+        pt_plus = parseInt(pt_plus);
+       
+        $('#Fpt_plus').val(pt_plus);
+        //alert($('#Fpt_plus').val());
+      
+    	
   		return true;
   	}//end
  
@@ -666,6 +714,9 @@ input[type="checkbox"] + label:before {
         element_wrap.style.display = 'block';
     }//END
 /*---------------  DAUM API  ---------------*/
+ 
+ 
+ 
 </script>
 
 <%@ include file="../footer.jsp" %>

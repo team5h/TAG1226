@@ -2,6 +2,8 @@
 <%@ include file="ssi.jsp" %>
 <%@ include file="../header.jsp" %>
 
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+
 <style>
 .btn.naverbtn {
   background: transparent;
@@ -11,8 +13,8 @@
 
 
 .btn.naverbtn:hover {
-  color: white;
-  background: #19ce60;
+  color: black;
+  background: #fae100;
 }
 
 .btn.btn-ooutline-black {
@@ -74,7 +76,8 @@ input[type="checkbox"] + label:before {
 	<input type="hidden" value="${cart_orderPrice.order_price}" name="order_price">
 	<input type="hidden" value="<fmt:formatNumber type="number" maxFractionDigits="0" value="${cart_orderPrice.order_price*0.01}"/>" id="Fpt_plus" name="pt_plus">
 	<input type="hidden" value="" id="Fpt_minus" name="pt_minus">
-
+	
+	<c:set var="m_id" value="${s_m_id}"/>
 
 
 	<div style="padding:0 10px; width: 60%; display: inline-block;"> 
@@ -175,7 +178,7 @@ input[type="checkbox"] + label:before {
 			<div style="width: 100%;"> 
 				<button type="button" class="btn btn-outline-black btn-sm" id="card" style="width: 33.3%; border-right:none;"> 신용·체크카드</button>
 				<button type="button" class="btn btn-outline-black btn-sm" id="bank" style="width: 33.3%; margin-left: -5px; border-right:none;"> 무통장 입금</button>
-				<button type="button" class="btn naverbtn btn-sm" onclick="window.open('https://nid.naver.com/nidlogin.login');" style="width: 33.3%; margin-left: -5px;"> 네이버 페이</button>			
+				<button type="button" class="btn naverbtn btn-sm" id="iamportPayment" style="width: 33.3%; margin-left: -5px;"> 카카오 페이</button>			
 			</div>	
 
 			<br>
@@ -335,6 +338,12 @@ input[type="checkbox"] + label:before {
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 
 <script>
+
+	$(document).ready(function(){ 
+		$("#iamportPayment").click(function(){ 
+	    	payment(); //버튼 클릭하면 호출 
+	    }); 
+	})
    
    $('#card').click(function(){
       $('#cardinfo').css('display','block');
@@ -344,12 +353,38 @@ input[type="checkbox"] + label:before {
       $('#cardinfo').css('display','none');
    })//end
    
-    var order_price = parseInt(${order_price});      // 제품 가격*수량 = 할인 안들어간 원가
+   var order_price = parseInt(${order_price});      // 제품 가격*수량 = 할인 안들어간 원가
    var total_price = parseInt(${total_price});      // 현재 총 결제 금 (가변적)      
    var comma = '';
    var dis_price = 0;                        // 할인 된 금액 
    
    //total_price += 3000;                     // 기본 배송비
+   
+   var m_id = "<c:out value='${m_id}'/>"
+   	
+   // 카카오페이 버튼! (한번 이미 결제 완료하면 아래 merchant_uid: 를 새롭게 바꿔줘야 결제진행이 됩니다...이유는 모름)
+   function payment(data) {
+		//alert(m_id);
+		
+	    IMP.init('imp13534036');			 //아임포트 관리자 콘솔에서 확인한 '가맹점 식별코드' 입력
+	    IMP.request_pay({					 // param
+	        pg: "kakaopay.TC0ONETIME", 		 //pg사명 or pg사명.CID (잘못 입력할 경우, 기본 PG사가 띄워짐)
+	        pay_method: "card", 			 //지불 방법
+	        merchant_uid: m_id,    	         //"iamport_test_id", //가맹점 주문번호 (아임포트를 사용하는 가맹점에서 중복되지 않은 임의의 문자열을 입력)
+	        name: "TAG:Ticket And Goods",    //결제창에 노출될 상품명
+	        amount: total_price, 			 //금액
+	        buyer_email : "teser@naver.com", 
+	        buyer_name : "홍길동",
+	        buyer_tel : "01012341234"
+	    }, function (rsp) { 				 // callback
+	        if (rsp.success) {
+	            //alert("완료 -> imp_uid : "+rsp.imp_uid+" / merchant_uid(orderKey) : " +rsp.merchant_uid);
+	        	//location.href='/home';
+	        } else {
+	            alert("실패 : 코드("+rsp.error_code+") / 메세지(" + rsp.error_msg + ")");
+	        }
+	    });
+	}//kakaopay
    
    // 쿠폰 사용
    $('#couponselect').change(function() {
@@ -612,8 +647,8 @@ input[type="checkbox"] + label:before {
        //alert("total_price"+$('#Ftotal_price').val());
 
           
-      //alert($('input[name="pt_plus"]').val());
-       pt_plus = $('input[name="pt_plus"]').val();
+       //alert($('input[name="pt_plus"]').val());
+       var pt_plus = $('input[name="pt_plus"]').val();
        //alert(pt_plus);
        
        pt_plus = pt_plus.replace(',','');

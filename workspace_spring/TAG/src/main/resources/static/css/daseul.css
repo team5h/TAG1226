@@ -165,26 +165,25 @@
 #mainContainer {
 	--display: inline-block; 
 	position:relative; 
-	overflow-y:scroll; 
+	--overflow-y:scroll; 
 	--height:600px; 
 	height:100%; 
 	--width: 900px; 
 	width: 70%; 
-	margin-left:100px;
-	left:0;
+	margin-left:120px;
 	float:left;
 }
 
 #sideContainer {
 	--display: inline-block; 
 	position:relative; 
-	overflow-y:scroll; 
+	--overflow-y:scroll; 
 	--height:600px; 
 	height:100%; 
 	--width: 500px; 
-	--width: 36%; 
-	--margin-right:50px;
-	--left: 1000px;
+	—width: 36%; 
+	—margin-right:50px;
+	—left: 1000px;
 	float:right;
 }
 

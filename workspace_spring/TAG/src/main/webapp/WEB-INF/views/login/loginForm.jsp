@@ -7,9 +7,9 @@
 <style>
 
 .login-title {
-	font-size : 25px;
+	font-size : 36px;
+	font-weight: bold;
 }
-
 
 .login-btn {	
 	font-size : 18px;
@@ -26,8 +26,7 @@
 	width: 250px;
 	height: 50px;;
 	background-color: white;
-	color: grey;
-	border: none;
+	border: 1px solid black;
 	margin-top: 20px;
   }
   
@@ -52,10 +51,10 @@ height: 425px;
 	height: 270px;
 	text-align: center;
 	display: inline-block;
-	margin-top: 150px;
+	margin-top: 100px;
+	margin-bottom: 50px;
 }
 
-	
 
 footer{
   height: 170px;
@@ -63,7 +62,7 @@ footer{
   transform : translateY(-100%);
 }
 
-p {padding-bottom: 10px;}
+h1 {padding-bottom: 30px;}
   
 </style>
 
@@ -75,7 +74,7 @@ p {padding-bottom: 10px;}
  
 		<div class="my-div1">
 			<div class="my-div2">
-				<p class="login-title" >판매자 회원</p>
+				<h1 class="login-title" >판매자 회원</h1>
 				<div class="login">
 			 		<button class="login-btn" type="button" onclick="location.href='loginS.do'">로그인</button>
 			 	</div>
@@ -87,7 +86,7 @@ p {padding-bottom: 10px;}
 
 		<div class="my-div1">
 			<div class="my-div2">
-				<p class="login-title">일반 회원</p>
+				<h1 class="login-title">일반 회원</h1>
 				<div class="login">
 			 		<button class="login-btn" type="button" onclick="location.href='/loginG.do'">로그인</button>
 			 	</div>
@@ -100,6 +99,6 @@ p {padding-bottom: 10px;}
 </div>
 
 
-<!-- 본문영역 -->
+<!— 본문영역 —>
 
 <%@ include file="../footer.jsp" %>

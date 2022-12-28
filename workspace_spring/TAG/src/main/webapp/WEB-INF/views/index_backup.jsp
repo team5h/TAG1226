@@ -359,6 +359,145 @@
 		
 	</div>
 
+
+
+<!-- 
+
+	<div class="untree_co-section">
+		<div class="container">
+
+
+			<div class="deal-hero overlay" style="background-image: url('images/헤더3.jpg')"> 
+				<div class="deal-contents">
+					<span class="subtitle">해리 스타일스 첫 내한공연</span>
+					<h2 class="title mb-4"><a href="#">HARRY STYLES LOVE ON TOUR 2023 - Live in Seoul</a></h2>
+					<p class="mb-5">※ 본 공연은 가상계좌 입금 마감 시간이 예매 당일 23시 29분이오니, 무통장 입금 선택 예매 시 착오 없으시기 바랍니다.<br>
+									※ 본 공연은 네이버 쿠폰이 적용되지 않습니다.<br>
+									※ 라이브네이션 선예매는 무통장입금이 불가합니다. </p>
+					<a href="#" class="btn btn-black">Ticketing Now</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+ 
+	<div class="untree_co-section">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-6 col-sm-6 col-md-6 mb-4 col-lg-4">
+					<div class="product-item">
+						<a href="shop-single.html" class="product-img">
+
+							<div class="label new top-right">
+								<div class='content'>New</div>
+							</div>
+
+							
+							<img src="images/products/jacket-1-min.jpg" alt="Image" class="img-fluid">
+						</a>
+						<h3 class="title"><a href="#">Dark Jacket</a></h3>
+						<div class="price">
+							<span>Â£69.00</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-6 col-sm-6 col-md-6 mb-4 col-lg-4">
+					<div class="product-item">
+						<a href="shop-single.html" class="product-img">
+							<div class="label new top-right">
+								<div class='content'>New</div>
+							</div>
+
+							<div class="label sale top-right second">
+								<div class='content'>Sale</div>
+							</div>
+							<img src="images/products/bottoms-1-min.jpg" alt="Image" class="img-fluid">
+						</a>
+						<h3 class="title"><a href="#">Chino Bottoms</a></h3>
+						<div class="price">
+							<del>Â£99.00</del> &mdash; <span>Â£69.00</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-6 col-sm-6 col-md-6 mb-4 col-lg-4">
+					<div class="product-item">
+						<a href="shop-single.html" class="product-img">
+							<img src="images/products/shoe-1-min.jpg" alt="Image" class="img-fluid">
+						</a>
+						<h3 class="title"><a href="#">Brown Shoe</a></h3>
+						<div class="price">
+							<span>Â£29.00</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-6 col-sm-6 col-md-6 mb-4 col-lg-4">
+
+					<div class="product-item">
+						<a href="shop-single.html" class="product-img">
+							<img src="images/products/sock-1-min.jpg" alt="Image" class="img-fluid">
+						</a>
+						<h3 class="title"><a href="#">The Modern Sock</a></h3>
+						<div class="price">
+							<span>Â£29.00</span>
+						</div>
+					</div>
+
+				</div>
+				<div class="col-6 col-sm-6 col-md-6 mb-4 col-lg-4">
+
+					<div class="product-item">
+						<a href="shop-single.html" class="product-img">
+							<div class="label sale top-right">
+								<div class='content'>Sale</div>
+							</div>
+							<img src="images/products/sweater-2-min.jpg" alt="Image" class="img-fluid">
+						</a>
+						<h3 class="title"><a href="#">Double Knit Sweater</a></h3>
+						<div class="price">
+							<del>Â£99.00</del> &mdash; <span>Â£69.00</span>
+						</div>
+					</div>
+
+
+				</div>
+				<div class="col-6 col-sm-6 col-md-6 mb-4 col-lg-4">
+
+					<div class="product-item">
+						<a href="shop-single.html" class="product-img">
+							<div class="label sale top-right">
+								<div class='content'>Sale</div>
+							</div>
+							<img src="images/products/watch-1-min.jpg" alt="Image" class="img-fluid">
+						</a>
+						<h3 class="title"><a href="#">The Murray</a></h3>
+						<div class="price">
+							<del>Â£99.00</del> &mdash; <span>Â£69.00</span>
+						</div>
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="container">
+
+
+		<div class="deal-hero overlay" style="background-image: url('images/hero-slider-3-min.jpg')"> 
+			<div class="deal-contents">
+				<span class="subtitle">Limited Offers 20% OFF</span>
+				<h2 class="title mb-4"><a href="#">Summer Promo</a></h2>
+				<p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum fuga incidunt laboriosam voluptas iure, delectus dignissimos facilis neque nulla earum.</p>
+				<a href="#" class="btn btn-black">Shop Now</a>
+			</div>
+		</div>
+
+	</div>
+-->
 <br>
 	<div class="untree_co-section">
 		<div class="container">
@@ -383,31 +522,78 @@
 					</a>
 				</div>
 			</div> <!-- /.heading -->
-
-
 			<div class="owl-3-slider owl-carousel">
-						
-			<c:forEach var="row" items="${recently_con}" varStatus="vs">
-			
 				<div class="item">
 					<div class="product-item">
-						<a href="/concert/${row.c_no}" class="product-img">
+						<a href="/concert/3" class="product-img">
 
-							<img src="/images/poster/${row.postername}" alt="Image" class="img-fluid">
+							<img src="/images/poster/harrystyles_poster.jpg" alt="Image" class="img-fluid">
 						</a>
-						<h3 class="title"><a href="/concert/${row.c_no}">${row.title}</a></h3>
+						<h3 class="title"><a href="/concert/3">HARRY STYLES LOVE ON TOUR 2023</a></h3>
 						<div class="price">
-							<span>￦ 
-							<fmt:formatNumber value="${row.price}" pattern="#,###"/></span>
+							<span>￦165,000</span>
 						</div>
 					</div>
 				</div> <!-- /.item -->
-			</c:forEach>
-			
+
+
+				<div class="item">
+					<div class="product-item">
+						<a href="/concert/5" class="product-img">
+
+							
+							<img src="/images/poster/johnnystimson_poster.jpg" alt="Image" class="img-fluid">
+						</a>
+						<h3 class="title"><a href="/concert/5">Johnny Stimson Live in Seoul</a></h3>
+						<div class="price">
+							<span>￦99,000</span>
 						</div>
+					</div>
+				</div> <!-- /.item -->
+
+
+				<div class="item">
+					<div class="product-item">
+						<a href="/concert/1" class="product-img">
+
+							<img src="/images/poster/johnk_poster.jpeg" alt="Image" class="img-fluid">
+						</a>
+						<h3 class="title"><a href="/concert/1">LIVE IN SEOUL JOHN K</a></h3>
+						<div class="price">
+							<span>￦88,000</span>
+						</div>
+					</div>
+				</div> <!-- /.item -->
+
+				<div class="item">
+					<div class="product-item">
+						<a href="/concert/2" class="product-img">
+							<img src="images/poster/kehlani_poster.jpg" alt="Image" class="img-fluid">
+						</a>
+						<h3 class="title"><a href="/concert/2">Kehlani: Blue Water Road Trip In Korea</a></h3>
+						<div class="price">
+							<span>￦110,000</span>
+						</div>
+					</div>
+				</div> <!-- /.item -->
+				
+				<div class="item">
+					<div class="product-item">
+						<a href="/concert/4" class="product-img">
+							<img src="images/poster/prep_poster.jpg" alt="Image" class="img-fluid">
+						</a>
+						<h3 class="title"><a href="/concert/4">PREP LIVE IN SEOUL</a></h3>
+						<div class="price">
+							<span>￦88,000</span>
+						</div>
+					</div>
+				</div> <!-- /.item -->
+				
+			</div>
 		</div> <!-- /.container -->
 	</div> <!-- /.untree_co-section -->  
-		
+
+
 	<div class="untree_co-section">
 		<div class="container">
 			<div class="row mb-5 align-items-center">
@@ -431,26 +617,92 @@
 					</a>
 				</div>
 			</div> <!-- /.heading -->
-			
 			<div class="owl-3-slider owl-carousel">
+				<div class="item">
+					<div class="product-item">
+						<a href="/product/32" class="product-img">
+							<img src="/images/products/harrystyles09.png" alt="Image" class="img-fluid">
+						</a>
+						<h3 class="title"><a href="/product/32">Harry's House Hat Blue</a></h3>
+						<div class="price">
+							<span>￦25,000</span>
+						</div>
+					</div>
+				</div> <!-- /.item -->
 
- 			<c:forEach var="row" items="${recently_pro}" varStatus="vs">
+
+				<div class="item">
+					<div class="product-item">
+						<a href="/product/28" class="product-img">
+							<img src="/images/products/harrystyles05.png" alt="Image" class="img-fluid">
+						</a>
+						<h3 class="title"><a href="/product/28">Love On Tour Poster - New York City Mint</a></h3>
+						<div class="price">
+							<span>￦10,000</span>
+						</div>
+					</div>
+				</div> <!-- /.item -->
+
+
+				<div class="item">
+					<div class="product-item">
+						<a href="/product/20" class="product-img">
+							<img src="/images/products/kehlani09.png" alt="Image" class="img-fluid">
+						</a>
+						<h3 class="title"><a href="/product/20">Kehlani While We Wait Tote Bag</a></h3>
+						<div class="price">
+							<span>￦15,000</span>
+						</div>
+					</div>
+				</div> <!-- /.item -->
+
+				<div class="item">
+					<div class="product-item">
+						<a href="/product/18" class="product-img">
+							<img src="/images/products/kehlani07.png" alt="Image" class="img-fluid">
+						</a>
+						<h3 class="title"><a href="/product/18">Kehlani blue water road translucent blue vinyl</a></h3>
+						<div class="price">
+							<span>￦50,000</span>
+						</div>
+					</div>
+				</div> <!-- /.item -->
 				
 				<div class="item">
 					<div class="product-item">
-						<a href="/product/${row.pro_no}" class="product-img">
-							<img src="/storage/${row.postername}" alt="Image" class="img-fluid">
+						<a href="/product/5" class="product-img">
+							<img src="/images/products/johnk5.png" alt="Image" class="img-fluid">
 						</a>
-						<h3 class="title"><a href="/product/${row.pro_no}">${row.pro_name}</a></h3>
+						<h3 class="title"><a href="/product/5">JOHN K POSTER #2</a></h3>
 						<div class="price">
-							<span>￦ 
-							<fmt:formatNumber value="${row.price}" pattern="#,###"/></span>
+							<span>￦8,000</span>
 						</div>
-						</div>
-					
+					</div>
 				</div> <!-- /.item -->
-			</c:forEach>
-			
+				
+				<div class="item">
+					<div class="product-item">
+						<a href="/product/51" class="product-img">
+							<img src="/images/products/johnnystimson7.png" alt="Image" class="img-fluid">
+						</a>
+						<h3 class="title"><a href="/product/51">Johnny Stimson - Hard to Say Goodbye [Single]</a></h3>
+						<div class="price">
+							<span>￦48,000</span>
+						</div>
+					</div>
+				</div> <!-- /.item -->
+				
+				<div class="item">
+					<div class="product-item">
+						<a href="/product/42" class="product-img">
+							<img src="/images/products/prep7.png" alt="Image" class="img-fluid">
+						</a>
+						<h3 class="title"><a href="/product/42">PREP - On and On [Single]</a></h3>
+						<div class="price">
+							<span>￦48,000</span>
+						</div>
+					</div>
+				</div> <!-- /.item -->
 			</div>
 		</div> <!-- /.container -->
 	</div> <!-- /.untree_co-section -->  
@@ -510,7 +762,81 @@
 	</div> <!-- /.untree_co-section -->
 
 	<div class="site-footer">
+
+
 		<div class="container" style=" max-width: 1350px;">
+		<!-- 
+			<div class="row justify-content-between">
+				 
+				<div class="col-lg-5">
+					<div class="widget mb-4">
+						  <h3 class="mb-2">About UntreeStore</h3>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate modi cumque rem recusandae quaerat at asperiores beatae saepe repudiandae quam rerum aspernatur dolores et ipsa obcaecati voluptates libero</p>
+						 -->
+					<!-- 
+					</div>
+					<div class="widget">
+						
+						<h3>Join our mailing list and receive exclusives</h3>
+						<form action="#" class="subscribe">
+							<div class="d-flex">
+								<input type="email" class="form-control" placeholder="Email address">
+								<input type="submit" class="btn btn-black" value="Subscribe">
+							</div>
+						</form>	
+									
+					</div>
+				</div>
+				-->	
+<!-- 				
+				<div class="col-lg-2">
+					<div class="widget">
+						<h3>Help</h3> 
+						<ul class="list-unstyled">
+							<li><a href="#">Contact us</a></li>
+							<li><a href="#">Account</a></li>
+							<li><a href="#">Shipping</a></li>
+							<li><a href="#">Returns</a></li>
+							<li><a href="#">FAQ</a></li>   
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-2">
+					<div class="widget">
+						<h3>About</h3>
+						<ul class="list-unstyled">
+							<li><a href="#">About us</a></li>
+							<li><a href="#">Press</a></li>
+							<li><a href="#">Careers</a></li>
+							<li><a href="#">Team</a></li>
+							<li><a href="#">FAQ</a></li>   
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-2">
+					<div class="widget">
+						<h3>Shop</h3>
+						<ul class="list-unstyled">
+							<li><a href="#">Store</a></li>
+							<li><a href="#">Gift Cards</a></li>
+							<li><a href="#">Student Discount</a></li>
+						</ul>
+					</div>
+				</div>
+				
+			</div>
+-->
+<!-- 
+			<div class="row mt-5">
+				<div class="col-12 text-center">
+					<ul class="list-unstyled social">
+						<li><a href="#"><span class="icon-facebook"></span></a></li>
+						<li><a href="#"><span class="icon-instagram"></span></a></li>
+						<li><a href="#"><span class="icon-linkedin"></span></a></li>
+						<li><a href="#"><span class="icon-twitter"></span></a></li>
+					</ul>
+				</div>
+ -->
 				<div class="col-12 copyright">
 					<p>CONTACT US 
 						<br>+84 02.6255.8002</p> 
@@ -518,7 +844,9 @@
 					<p style="color:#b3b3b3; font-weight:100;">
 					Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved.<!-- License information: https://untree.co/license/ -->
 					</p>
+
 				</div>
+			</div>
 		</div> <!-- /.container -->
 	</div> <!-- /.site-footer -->
 	

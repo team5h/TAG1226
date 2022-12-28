@@ -93,24 +93,26 @@
 	
 	<select id="orderlist" resultType="kr.co.itwill.productOrder.ProdcutOrderDTO" parameterType="java.util.Map">
 		<![CDATA[
+		
 			SELECT AA.*
 			FROM(
 			    SELECT @RNO := @RNO + 1 as r, CC.*
 			    FROM (
-						SELECT order_num, sum(detail_cnt) as total_cnt, m_id, rec_name, (org_price - cp_dis - pt_minus + d_fee) as total_price
+						SELECT order_num, sum(detail_cnt) as total_cnt, m_id, rec_name, (sum(org_price) - cp_dis - pt_minus + d_fee) as total_price
 			            		, rec_addr1, rec_addr2, rec_zipcode, rec_tel, substr(order_num,1,8) as order_date
 			            FROM (
-			                    SELECT od.order_num, detail_cnt, m_id, rec_name, org_price, cp_dis, pt_minus, d_fee, rec_addr1, rec_addr2, rec_zipcode, rec_tel, msg
+			                    SELECT od.order_num, detail_cnt, m_id, rec_name,  org_price , cp_dis, pt_minus, d_fee, rec_addr1, rec_addr2, rec_zipcode, rec_tel, msg
 			                    FROM order_detail od join product p on od.pro_no = p.pro_no 
 			                                        join product_order po on od.order_num = po.order_num
 			                    WHERE p_id = #{p_id}
+                                 
 			            )aa
-			            GROUP BY order_num
-                        
+			           GROUP BY order_num
 			    ) CC, (SELECT @RNO := 0) BB 
 			ORDER BY order_num DESC
 			) AA 
 			WHERE r >= #{start} AND r <= #{end}
+			
 		]]>
 	</select>
 	

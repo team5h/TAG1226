@@ -9,8 +9,6 @@
 
 <style>
 
-
-
 /* 전체 가로 너비 */
 .container {max-width: 1350px; !important;} 
 
@@ -1082,6 +1080,6 @@ function setRegexp(price) {
 </script>
 
 
-<!-- 본문영역 -->
+<!-- 본문영역 --> 
 
 <%@ include file="../footer.jsp" %>

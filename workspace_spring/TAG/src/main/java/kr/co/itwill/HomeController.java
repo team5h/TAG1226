@@ -25,6 +25,9 @@ public class HomeController {
 
 	@Autowired
 	CartDAO cartDao;
+	
+	@Autowired
+	HomeDAO homedao;
 
 	//http://localhost:8080/home
 	
@@ -35,6 +38,9 @@ public class HomeController {
 		String m_id = (String) session.getAttribute("s_m_id");
 		
 		mav.setViewName("/index");
+		mav.addObject("recently_pro",homedao.recently_pro());
+		mav.addObject("recently_con",homedao.recently_con());
+		
 		
 		if(m_id == null) {
 			return mav;

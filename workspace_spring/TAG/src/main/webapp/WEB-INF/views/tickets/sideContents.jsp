@@ -6,6 +6,11 @@
 
 <style>
 
+#map1F, #map2F{
+	height:50px;
+	width:50px;
+}
+
 #seatAddFormjsp table, #ticketAddFormjsp table{
 	font-size:12px;
 }
@@ -17,7 +22,7 @@
 }
 
 #panel input{
- 	width: 225px;
+ 	width: 260px;
 	font-size:16px;
 }
 
@@ -71,23 +76,23 @@
 	</tr>
 	<tr>
 		<td>
-			<button type="button" id="map1F" name="map1F" style=" margin-left:70px;">1층 맵</button>
+			<button type="button" id="map1F" name="map1F" style=" margin-left:50px;">1층</button>
 			<c:choose>
      			<c:when test="${concert.j_id == 'yes24'}">
-     				<img src="/images/yes24_1f.png" style="width:120px; margin-right:60px;">
+     				<img src="/images/yes24_1f.png" style="width:160px; margin-right:40px;">
      			</c:when>
      			<c:when test="${concert.j_id == 'bluesquare'}"> 
-     				<img src="/images/bluesquare1f.png" style="width:120px; margin-right:60px;">
+     				<img src="/images/bluesquare1f.png" style="width:160px; margin-right:40px;">
      			</c:when>
      		</c:choose>
 			
-			<button type="button" id="map2F" name="map2F" style=" margin-left:70px;">2층 맵</button>
+			<button type="button" id="map2F" name="map2F" style=" margin-left:50px;">2층</button>
 			<c:choose>
      			<c:when test="${concert.j_id == 'yes24'}">
-     				<img src="/images/yes24_2f.png" style="width:120px; margin-right:60px;">
+     				<img src="/images/yes24_2f.png" style="width:160px; margin-right:40px;">
      			</c:when>
      			<c:when test="${concert.j_id == 'bluesquare'}"> 
-     				<img src="/images/bluesquare2f.png" style="width:120px; margin-right:60px;">
+     				<img src="/images/bluesquare2f.png" style="width:160px; margin-right:40px;">
      			</c:when>
      		</c:choose>
 			
@@ -222,14 +227,14 @@
 	</tr>
 	<tr>
 		<td style="background:lightgrey;">총 결제금액</td>
-		<td><input type="text" id="totalPrice"></td><!-- 최종결제금액 -->
+		<td><input type="text" id="totalPrice"></td><!— 최종결제금액 —>
 	</tr>
 	<tr>
 		<td colspan="2">
-			<button type="button" id="goSaddForm" name="goSaddForm"><i class="fa-solid fa-chevron-left"></i> 이전단계</button><!-- 1.좌석선택으로 -->
-			<button type="button" id="goSale" name="goSale"><i class="fa-solid fa-chevron-left"></i> 이전단계</button><!-- 2.가격할인으로 -->
-			<button type="button" id="goDlv" name="goDlv">다음단계 <i class="fa-solid fa-chevron-right"></i></button><!-- 3.배송현장수령으로 -->
-			<button type="submit" id="goFinish" name="goFinish">결제완료 <i class="fa-solid fa-check"></i></button><!-- 결제완료 -->
+			<button type="button" id="goSaddForm" name="goSaddForm"><i class="fa-solid fa-chevron-left"></i> 이전단계</button><!— 1.좌석선택으로 —>
+			<button type="button" id="goSale" name="goSale"><i class="fa-solid fa-chevron-left"></i> 이전단계</button><!— 2.가격할인으로 —>
+			<button type="button" id="goDlv" name="goDlv">다음단계 <i class="fa-solid fa-chevron-right"></i></button><!— 3.배송현장수령으로 —>
+			<button type="submit" id="goFinish" name="goFinish">결제완료 <i class="fa-solid fa-check"></i></button><!— 결제완료 —>
 		</td>
 	</tr>
 	</table>

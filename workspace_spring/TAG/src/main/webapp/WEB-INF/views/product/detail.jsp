@@ -231,7 +231,7 @@ function topFunction() {
 										<p style="color:red;">일반회원만 가능한 서비스입니다.</p> 	
 									</c:when>
 								</c:choose>
-							<input type="number" name="passwd" inputmode="numeric" style="padding-top: 10px; margin-bottom: 18px; width: 160px;" class="input-number-password" placeholder="숫자만 입력 가능합니다"/>
+							<input type="number" name="passwd" id="passwdIns" inputmode="numeric" style="padding-top: 10px; margin-bottom: 18px; width: 160px;" class="input-number-password" placeholder="숫자만 입력 가능합니다"/>
 							<span id="pswdwarrning"  style="display:none; color:red; font-size: 10px; padding-left: 15px;">비밀번호를 설정해주세요.</span>
 							
 							
@@ -305,7 +305,7 @@ function topFunction() {
 		     		<!-- qna detail -->
 		     		<tr id="qnadetail${row.q_no}" class="detail" style="display:none;">
 		     			<td style="height: 300px; background-color: #f8f8f8; padding: 10px 20px; font-size: 15px;" colspan="4">
-								<div style="float: left; width:100%; text-align: left; padding-left: 10px; padding-bottom: 20px;"> 
+								<div style="float: left; width:100%; text-align: left; padding-left: 10px; padding-bottom: 10px; padding-top: 10px;"> 
 									[ <span id="subject${row.q_no}" style="padding: 10px 0 10px 0; font-weight: 600;"></span> ]
 												
 									<div style="float: right; padding-top: 10px;">
@@ -318,9 +318,11 @@ function topFunction() {
 										</button>
 						     		</div><!-- close btn -->
 								</div>
+								
+								
 								<br> 
 						
-								<div style="height:100px;"> 
+								<div style="height:300px;"> 
 									<span style="font-weight: bold; font-size:15px; padding-left: 15px; float:left; color:lightgreen; margin-bottom:0;"> Q.&nbsp;</span> 
 									<div id="edit${row.q_no}" style="float: right; width: 95%;  overflow: auto; text-align:left; display: inline-block;">
 		
@@ -497,13 +499,16 @@ function topFunction() {
 	//문의 작성
 	function qnasubmit(){
 		
+		var passwd = $('#passwdIns').val(); 
 		
-		if($('#passwd').val() == null) {
+		//alert(passwd.length);
+		
+		if(passwd.length == 0) {
 			//alert('비밀번호를 설정해주세요.');
 			$('#pswdwarrning').css('display','inline-block');
 			$('#subject').focus();
 		}//if end
-		
+	
 		let insertData = $('#qnainsert').serialize();
 		
 		$.ajax({
@@ -515,6 +520,7 @@ function topFunction() {
 						location.reload();
 					}
 		})//ajax end
+		
 	}//end
 	
 	// qna detail

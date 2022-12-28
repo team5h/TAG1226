@@ -318,7 +318,7 @@ line-height : 10px;
 										<td href="#">
 											<c:choose>
 								     			<c:when test="${concert.j_id == 'yes24'}"> yes24 라이브홀 </c:when>
-								     			<c:when test="${concert.j_id == 'bluesqure'}"> 블루스퀘어 마스터홀 </c:when>
+								     			<c:when test="${concert.j_id == 'bluesquare'}"> 블루스퀘어 마스터홀 </c:when>
 								     		</c:choose>
 										</td>
 									</div>

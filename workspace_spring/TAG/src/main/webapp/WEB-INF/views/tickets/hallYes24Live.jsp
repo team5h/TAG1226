@@ -6,7 +6,7 @@
 
 
 <style>
-
+/*
 .barBtn{
 	padding-left:450px;
 	height:40px;
@@ -44,6 +44,12 @@
 	border-radius: 10px 50px 50px 10px;
 	border: 3px solid white;
 }
+*/
+.barBtn .bar1{
+	background:#99ff99;
+	color: black;
+}
+
 
 #map1Fjsp p, #map2Fjsp p {
 	font-size:12px;
@@ -60,6 +66,7 @@
 	text-align:center;
 	padding: auto;
 	margin-right:50px;
+	margin-bottom:20px;
 }
 
 .stageBar b{
@@ -67,7 +74,16 @@
 	color:gray;
 }
 
-
+.blank1FBar {
+	height:200px;
+	width:500px;
+	background: lightgrey;
+	text-align:center;
+	padding: auto;
+	margin-left:170px;
+	margin-top:20px;
+	display:block;
+}
 
 </style>
 
@@ -139,6 +155,10 @@
 	
 	<div class="stageBar">
 		<b>STAGE</b>
+	</div>
+	
+	<div class="blank1FBar">
+		<b>아래층 스탠딩 구역</b>
 	</div>
 	
 	<div id="rseatX" style="display: inline-block; margin-left:40px;  margin-top:20px;">

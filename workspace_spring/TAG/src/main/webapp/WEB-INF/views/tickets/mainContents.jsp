@@ -8,21 +8,22 @@
 <style>
 
 .barBtn{
-	padding-left:450px;
-	height:40px;
+	padding-left:470px;
+	height:80px;
 }
 
 .barBtn .bar1, .barBtn .bar2, .barBtn .bar3{
-	padding-top: 12px;
-    padding-bottom: 12px;
-    padding-left: 25px;
-    padding-right: 25px;
+	width:150px;
+	padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 32px;
+    padding-right: 32px;
     font-size: 14px;
 }
 
 
 .barBtn .bar1{
-	margin-left:-200px;
+	margin-left:-285px;
 	background:#99ff99;
 	color: black;
 	border-radius: 10px 50px 50px 10px;
@@ -30,7 +31,7 @@
 }
 
 .barBtn .bar2{
-	margin-left:-200px;
+	margin-left:-280px;
 	background:black;
 	color: white;
 	border-radius: 10px 50px 50px 10px;
@@ -38,7 +39,7 @@
 }
 
 .barBtn .bar3{
-	margin-left:10px;
+	--margin-left:60px;
 	background:black;
 	color: white;
 	border-radius: 10px 50px 50px 10px;
@@ -78,7 +79,7 @@
 }
 
 .stb input {
-    width: 115px;
+    width: 125px;
     text-align:center;
     font-size: 14px;
 }

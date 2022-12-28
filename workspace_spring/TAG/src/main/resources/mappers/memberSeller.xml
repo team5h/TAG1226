@@ -146,8 +146,8 @@
 </select>
 
 <select id="delCom_cnt" resultType="int" parameterType="String">
-	SELECT COUNT(IFNULL(aa.delCom_cnt,0)) AS delCom_cnt
-	FROM (
+   SELECT (IFNULL(aa.delCom_cnt,0)) AS delCom_cnt
+   FROM (
             SELECT COUNT(order_num) AS delCom_cnt
             FROM order_detail o join product p 
                                 on o.pro_no = p.pro_no

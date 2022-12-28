@@ -6,6 +6,11 @@
 
 <style>
 
+#map1F, #map2F{
+	height:50px;
+	width:50px;
+}
+
 #seatAddFormjsp table, #ticketAddFormjsp table{
 	font-size:12px;
 }
@@ -17,7 +22,7 @@
 }
 
 #panel input{
- 	width: 225px;
+ 	width: 260px;
 	font-size:16px;
 }
 
@@ -71,23 +76,23 @@
 	</tr>
 	<tr>
 		<td>
-			<button type="button" id="map1F" name="map1F" style=" margin-left:70px;">1층 맵</button>
+			<button type="button" id="map1F" name="map1F" style=" margin-left:50px;">1층</button>
 			<c:choose>
      			<c:when test="${concert.j_id == 'yes24'}">
-     				<img src="/images/yes24_1f.png" style="width:120px; margin-right:60px;">
+     				<img src="/images/yes24_1f.png" style="width:160px; margin-right:40px;">
      			</c:when>
      			<c:when test="${concert.j_id == 'bluesquare'}"> 
-     				<img src="/images/bluesquare1f.png" style="width:120px; margin-right:60px;">
+     				<img src="/images/bluesquare1f.png" style="width:160px; margin-right:40px;">
      			</c:when>
      		</c:choose>
 			
-			<button type="button" id="map2F" name="map2F" style=" margin-left:70px;">2층 맵</button>
+			<button type="button" id="map2F" name="map2F" style=" margin-left:50px;">2층</button>
 			<c:choose>
      			<c:when test="${concert.j_id == 'yes24'}">
-     				<img src="/images/yes24_2f.png" style="width:120px; margin-right:60px;">
+     				<img src="/images/yes24_2f.png" style="width:160px; margin-right:40px;">
      			</c:when>
      			<c:when test="${concert.j_id == 'bluesquare'}"> 
-     				<img src="/images/bluesquare2f.png" style="width:120px; margin-right:60px;">
+     				<img src="/images/bluesquare2f.png" style="width:160px; margin-right:40px;">
      			</c:when>
      		</c:choose>
 			

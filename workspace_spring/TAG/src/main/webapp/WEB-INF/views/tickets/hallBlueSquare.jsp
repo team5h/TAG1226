@@ -6,10 +6,11 @@
 
 
 <style>
-
+/*
 .barBtn{
-	padding-left:450px;
-	height:40px;
+	--padding-left:450px;
+	margin:auto;
+	height:50px;
 }
 
 .barBtn .bar1, .barBtn .bar2, .barBtn .bar3{
@@ -44,6 +45,11 @@
 	border-radius: 10px 50px 50px 10px;
 	border: 3px solid white;
 }
+*/
+.barBtn .bar1{
+	background:#99ff99;
+	color: black;
+}
 
 
 #map1Fjsp p, #map2Fjsp p {
@@ -56,6 +62,7 @@
 
 .stageBar {
 	height:40px;
+	width:845px;
 	background: lightgrey;
 	text-align:center;
 	padding: auto;
@@ -153,36 +160,38 @@
 		<b>STAGE</b>
 	</div>
 	
-	<div id="standA" style="display: inline-block; margin-right:40px; margin-top:20px;">
-		<h6>스탠딩 A구역</h6>
-		<table style="border-spacing: 0;">
-			<tr>
-			<c:forEach var="seatA" begin="1" end="495" step="1">
-				<td>
-					<input type="button" id=btnA${seatA} name=btnA${seatA} value="${seatA}" onclick="standAdd(this, 'A', ${seatA})">
-				</td>
-				<c:if test="${seatA mod 33 == 0}">
-					<tr></tr>
-				</c:if>
-			</c:forEach>
-			</tr>
-		</table>
-	</div>
-	<div id="standB" style="display: inline-block;">
-		<h6>스탠딩 B구역</h6>
-		<table style="border-spacing: 0;">
-			<tr>
-			<c:forEach var="seatB" begin="1" end="495" step="1">
-				<td>
-					<input type="button" id=btnB${seatB} name=btnB${seatB} value="${seatB}" onclick="standAdd(this, 'B', ${seatB})">
-				</td>
-				<c:if test="${seatB mod 33 == 0}">
-				<!-- 테이블 한줄에 30개씩 -->
-					<tr></tr>
-				</c:if>
-			</c:forEach>
-			</tr>
-		</table>
+	<div style="display: block;">
+		<div id="standA" style="display: inline-block; margin-right:40px; margin-top:20px;">
+			<h6>스탠딩 A구역</h6>
+			<table style="border-spacing: 0;">
+				<tr>
+				<c:forEach var="seatA" begin="1" end="495" step="1">
+					<td>
+						<input type="button" id=btnA${seatA} name=btnA${seatA} value="${seatA}" onclick="standAdd(this, 'A', ${seatA})">
+					</td>
+					<c:if test="${seatA mod 33 == 0}">
+						<tr></tr>
+					</c:if>
+				</c:forEach>
+				</tr>
+			</table>
+		</div>
+		<div id="standB" style="display: inline-block;">
+			<h6>스탠딩 B구역</h6>
+			<table style="border-spacing: 0;">
+				<tr>
+				<c:forEach var="seatB" begin="1" end="495" step="1">
+					<td>
+						<input type="button" id=btnB${seatB} name=btnB${seatB} value="${seatB}" onclick="standAdd(this, 'B', ${seatB})">
+					</td>
+					<c:if test="${seatB mod 33 == 0}">
+					<!-- 테이블 한줄에 30개씩 -->
+						<tr></tr>
+					</c:if>
+				</c:forEach>
+				</tr>
+			</table>
+		</div>
 	</div>
 	<div id="standC" style="display: inline-block; --margin-right:40px; margin-top:20px;">
 		<h6>스탠딩 C구역</h6>
@@ -233,45 +242,47 @@
 		<b>STAGE</b>
 	</div>
 	
-	<div id="rseatV">
-		<h6>지정좌석 V구역</h6>
-		<table style="border-spacing: 0;">
-			<!-- "seatV" 좌석의 고유번호(flags의 갯수와 일치) -->
-			<c:set var="seatV" value="0"/>
-			<c:forEach var="r" begin="1" end="6" step="1">
-			<tr>
-				<c:forEach var="c" begin="1" end="1" step="1">
-					<td>
-						<c:set var="seatV" value="${seatV+1}"/>
-						<input type="button" id=btnV${seatV} name=btnV${seatV} value="${seatV}" onclick="rseatAdd(this, 'V', ${r}, ${seatV})">
-					</td>
-				</c:forEach><!-- c end -->
-			</tr>
-			</c:forEach><!-- r end -->
-		</table>
-	</div><!-- id="rseatV" end -->
-	
-	<div class="blank1FBar" style="display:inline-block;">
-		<b>아래층 스탠딩 구역</b>
+	<div style="display:block;">
+		<div id="rseatV">
+			<h6>지정좌석 V구역</h6>
+			<table style="border-spacing: 0;">
+				<!-- "seatV" 좌석의 고유번호(flags의 갯수와 일치) -->
+				<c:set var="seatV" value="0"/>
+				<c:forEach var="r" begin="1" end="6" step="1">
+				<tr>
+					<c:forEach var="c" begin="1" end="1" step="1">
+						<td>
+							<c:set var="seatV" value="${seatV+1}"/>
+							<input type="button" id=btnV${seatV} name=btnV${seatV} value="${seatV}" onclick="rseatAdd(this, 'V', ${r}, ${seatV})">
+						</td>
+					</c:forEach><!-- c end -->
+				</tr>
+				</c:forEach><!-- r end -->
+			</table>
+		</div><!-- id="rseatV" end -->
+		
+		<div class="blank1FBar" style="display:inline-block;">
+			<b>아래층 스탠딩 구역</b>
+		</div>
+		
+		<div id="rseatW">
+			<h6>지정좌석 W구역</h6>
+			<table style="border-spacing: 0;">
+				<!-- "seatV" 좌석의 고유번호(flags의 갯수와 일치) -->
+				<c:set var="seatW" value="0"/>
+				<c:forEach var="r" begin="1" end="6" step="1">
+				<tr>
+					<c:forEach var="c" begin="1" end="1" step="1">
+						<td>
+							<c:set var="seatW" value="${seatW+1}"/>
+							<input type="button" id=btnW${seatW} name=btnW${seatW} value="${seatW}" onclick="rseatAdd(this, 'W', ${r}, ${seatW})">
+						</td>
+					</c:forEach><!-- c end -->
+				</tr>
+				</c:forEach><!-- r end -->
+			</table>
+		</div><!-- id="rseatW" end -->
 	</div>
-	
-	<div id="rseatW">
-		<h6>지정좌석 W구역</h6>
-		<table style="border-spacing: 0;">
-			<!-- "seatV" 좌석의 고유번호(flags의 갯수와 일치) -->
-			<c:set var="seatW" value="0"/>
-			<c:forEach var="r" begin="1" end="6" step="1">
-			<tr>
-				<c:forEach var="c" begin="1" end="1" step="1">
-					<td>
-						<c:set var="seatW" value="${seatW+1}"/>
-						<input type="button" id=btnW${seatW} name=btnW${seatW} value="${seatW}" onclick="rseatAdd(this, 'W', ${r}, ${seatW})">
-					</td>
-				</c:forEach><!-- c end -->
-			</tr>
-			</c:forEach><!-- r end -->
-		</table>
-	</div><!-- id="rseatW" end -->
 	<div id="rseatX">
 		<h6>지정좌석 X구역</h6>
 		<table style="border-spacing: 0;">

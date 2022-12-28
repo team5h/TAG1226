@@ -193,9 +193,9 @@ padding-bottom: 30px;
 					      <input id="chkbox" type="checkbox" ${empty cookie.id.value ? "":"checked" } name="saveId" value="SAVE"style="white-space:nowrap;">
 					      <label style="width: 100px;">아이디 저장 </label>
 					      
-				    	  &nbsp;&nbsp;&nbsp;	  
+				    	  &nbsp;&nbsp;	  
 						  <a href="#" onclick="location.href=''">아이디 찾기</a>
-						  &nbsp;&nbsp;&nbsp;
+						  &nbsp;&nbsp;
 						  <a href="#" onclick="location.href=''">비밀번호 찾기</a>
 				</div>
 	</form>

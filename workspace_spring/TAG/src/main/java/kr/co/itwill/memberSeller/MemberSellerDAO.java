@@ -82,15 +82,15 @@ public class MemberSellerDAO {
 		return sqlSession.update("memberSeller.answerupdate",dto);
 	}
 	
-	public int totorder_cnt (String p_id) {
+	public Integer totorder_cnt (String p_id) {
 		return sqlSession.selectOne("memberSeller.totorder_cnt",p_id);
 	}
 	
-	public int delCom_cnt (String p_id) {
+	public Integer delCom_cnt (String p_id) {
 		return sqlSession.selectOne("memberSeller.delCom_cnt",p_id);
 	}
 	
-	public int qnaN_cnt (String p_id) {
+	public Integer qnaN_cnt (String p_id) {
 		return sqlSession.selectOne("memberSeller.qnaN_cnt",p_id);
 	}
 	
@@ -102,7 +102,7 @@ public class MemberSellerDAO {
 		return sqlSession.selectList("memberSeller.recently_qna",p_id);
 	}
 	
-	public int qnaY_cnt (String p_id) {
+	public Integer qnaY_cnt (String p_id) {
 		return sqlSession.selectOne("memberSeller.qnaY_cnt",p_id);
 	}
 	

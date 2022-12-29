@@ -64,7 +64,7 @@
 	                WHERE a_stus = 'N' AND p.p_id = #{p_id}
 	                ORDER BY q_no ASC 
 			    ) CC, (SELECT @RNO := 0) BB 
-			 ORDER BY q_no ASC 
+			 ORDER BY regdate DESC
 			) AA 
 			WHERE r >= #{start} AND r <= #{end}
 		]]>
@@ -136,7 +136,7 @@
 	WHERE a_no = #{a_no}
 </update>
 
-<select id="totorder_cnt" resultType="int" parameterType="String">	
+<select id="totorder_cnt" resultType="Integer" parameterType="String">	
 	SELECT COUNT(distinct po.order_num) AS totorder_cnt
     FROM product_order po JOIN order_detail od
                           ON po.order_num = od.order_num
@@ -145,8 +145,15 @@
     WHERE p_id = #{p_id}
 </select>
 
-<select id="delCom_cnt" resultType="int" parameterType="String">
-	SELECT IFNULL(aa.delCom_cnt,0) AS delCom_cnt
+<select id="delCom_cnt" resultType="Integer" parameterType="String">
+
+	SELECT count(*) AS delCom_cnt
+	FROM order_detail o join product p on o.pro_no = p.pro_no 
+	WHERE p_id = 'livenation_kr' AND stus = '배송완료'
+	
+
+    <!-- 
+    	SELECT IFNULL(aa.delCom_cnt,0) AS delCom_cnt
 	FROM (
             SELECT COUNT(order_num) AS delCom_cnt
             FROM order_detail o join product p 
@@ -155,15 +162,17 @@
             GROUP BY p_id
             HAVING p_id = #{p_id}
     )aa
+    
+     -->
 </select>
 
-<select id="qnaN_cnt" resultType="int" parameterType="String">
+<select id="qnaN_cnt" resultType="Integer" parameterType="String">
 		SELECT count(q_no) AS qnaN_cnt
 		FROM qna q join product p on q.pro_no = p.pro_no join seller s on s.p_id = p.p_id
 		WHERE a_stus = 'N' AND p.p_id = #{p_id}
 </select>
 
-<select id="qnaY_cnt" resultType="int" parameterType="String">
+<select id="qnaY_cnt" resultType="Integer" parameterType="String">
 		SELECT count(q_no) AS qnaY_cnt
 		FROM qna q join product p on q.pro_no = p.pro_no join seller s on s.p_id = p.p_id
 		WHERE a_stus = 'Y' AND p.p_id = #{p_id}
